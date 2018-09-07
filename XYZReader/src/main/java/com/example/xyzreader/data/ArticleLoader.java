@@ -2,6 +2,7 @@ package com.example.xyzreader.data;
 
 import android.content.Context;
 import android.content.CursorLoader;
+import android.database.Cursor;
 import android.net.Uri;
 
 /**
@@ -10,6 +11,11 @@ import android.net.Uri;
 public class ArticleLoader extends CursorLoader {
     public static ArticleLoader newAllArticlesInstance(Context context) {
         return new ArticleLoader(context, ItemsContract.Items.buildDirUri());
+    }
+
+    @Override
+    public Cursor loadInBackground() {
+        return super.loadInBackground();
     }
 
     public static ArticleLoader newInstanceForItemId(Context context, long itemId) {

@@ -24,6 +24,8 @@ allprojects {
     ext {
         androidSupportVersion = "27.1.1"
 
+        constrainSupportVersion = "1.1.3"
+
     }
 }
 
