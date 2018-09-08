@@ -1,50 +1,66 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
+
+    <!--TODO nestedScrollView might not be necessary-->
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:background="@color/recyclerView_background" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/action_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:minHeight="?actionBarSize"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--?colorPrimary-->
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="?actionBarSize"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
+        <!--
+        Source:     https://stackoverflow.com/a/38582618/7504259
+        Name:       Arshak
+        Date:       Jul 26, 2016
+            -->
+
+    </android.support.v7.widget.Toolbar>
 
     <!--
             android:layout_height="56dp"
 -->
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/up_container"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@android:color/holo_green_dark">
-
-        <!--        <android.support.design.widget.CollapsingToolbarLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:expandedTitleMarginStart="@dimen/collapsingToolbarLayout_titleMarginStart"
-                    app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    >-->
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/action_up"
+    <!--
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@android:color/holo_red_dark"
-            app:layout_collapseMode="pin"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-<!--?colorPrimary-->
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/logo" />
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="56dp"
+            android:minHeight="?actionBarSize"
+            android:background="@android:color/holo_green_dark"
+            >
+    -->
 
-        <!--
-                </android.support.design.widget.CollapsingToolbarLayout>
-        -->
-    </android.support.design.widget.AppBarLayout>
+
+    <!--    </android.support.design.widget.AppBarLayout>-->
+
+    <!--    <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/up_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            app:contentScrim="?attr/colorPrimary"
+
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"></android.support.design.widget.CollapsingToolbarLayout>-->
 
     <!--    <FrameLayout
             android:id="@+id/up_container"

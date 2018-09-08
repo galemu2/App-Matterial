@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.widget.Toast;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
@@ -63,13 +64,14 @@ public class ArticleDetailActivity extends AppCompatActivity
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
         mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
 
+
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
                 mToolBar.animate()
                         .alpha((state == ViewPager.SCROLL_STATE_IDLE) ? 1f : 0f)
-                        .setDuration(300);
+                        .setDuration(300); //TODO animation was 300
             }
 
             @Override
@@ -82,13 +84,13 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         });
 
-        mUpButtonContainer = findViewById(R.id.up_container);
+//        mUpButtonContainer = findViewById(R.id.up_container);
 
         mToolBar = findViewById(R.id.action_up);
         setSupportActionBar(mToolBar);
-
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null) {
+        //mToolBar.setLogo(getResources().getDrawable(R.drawable.logo));
+         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
 
             /**
@@ -107,7 +109,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         });*/
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
             mUpButtonContainer.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
                 @Override
                 public WindowInsets onApplyWindowInsets(View view, WindowInsets windowInsets) {
@@ -118,7 +120,8 @@ public class ArticleDetailActivity extends AppCompatActivity
                     return windowInsets;
                 }
             });
-        }
+        }*/
+
 
         if (savedInstanceState == null) {
             if (getIntent() != null && getIntent().getData() != null) {
@@ -138,20 +141,28 @@ public class ArticleDetailActivity extends AppCompatActivity
         mCursor = cursor;
         mPagerAdapter.notifyDataSetChanged();
 
-        // Select the start ID
-        if (mStartId > 0) {
-            mCursor.moveToFirst();
-            // TODO: optimize
-            while (!mCursor.isAfterLast()) {
-                if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
-                    final int position = mCursor.getPosition();
-                    mPager.setCurrentItem(position, false);
-                    break;
+        //TODO used background thread to speed up lading
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Select the start ID
+                if (mStartId > 0) {
+                    mCursor.moveToFirst();
+                    // TODO: optimize
+                    while (!mCursor.isAfterLast()) {
+
+                        if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
+                            final int position = mCursor.getPosition();
+                            mPager.setCurrentItem(position, false);
+                            break;
+                        }
+                        mCursor.moveToNext();
+                    }
+                    mStartId = 0;
                 }
-                mCursor.moveToNext();
             }
-            mStartId = 0;
-        }
+        });
+
     }
 
     @Override
@@ -167,9 +178,10 @@ public class ArticleDetailActivity extends AppCompatActivity
         }
     }
 
+    /*TODO G. may not be needed*/
     private void updateUpButtonPosition() {
-        int upButtonNormalBottom = mTopInset + mToolBar.getHeight();
-        mToolBar.setTranslationY(Math.min(mSelectedItemUpButtonFloor - upButtonNormalBottom, 0));
+/*        int upButtonNormalBottom = mTopInset + mToolBar.getHeight();
+        mToolBar.setTranslationY(Math.min(mSelectedItemUpButtonFloor - upButtonNormalBottom, 0));*/
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {

@@ -15,20 +15,12 @@
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:minHeight="?actionBarSize"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="@dimen/collapsingToolbarLayout_titleMarginStart"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            >
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/tollbar_image_padding"
-                android:src="@drawable/logo" />
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
 
 
             <android.support.v7.widget.Toolbar
@@ -46,13 +38,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
-
                     android:src="@drawable/logo" />
+
                 <!--                    android:padding="@dimen/tollbar_image_padding"
                 -->
+
             </android.support.v7.widget.Toolbar>
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

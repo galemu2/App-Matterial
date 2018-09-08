@@ -66,13 +66,13 @@ public class ArticleListActivity extends AppCompatActivity implements
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //colapsable toolbar layout TODO
-        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_layout);
-        //TODO use or remove
+//        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_layout);
+/*        //TODO use or remove
         final ImageView imageView1 = findViewById(R.id.imageView1);
-        imageView1.setVisibility(View.INVISIBLE);
+        imageView1.setVisibility(View.VISIBLE);*/
         //TODO use or remove
-        final ImageView imageView2 = findViewById(R.id.imageView2);
-        imageView2.setVisibility(View.VISIBLE);
+/*        final ImageView imageView2 = findViewById(R.id.imageView2);
+        imageView2.setVisibility(View.VISIBLE);*/
 
         //TODO may not be as necessary
         setSupportActionBar(mToolbar);
