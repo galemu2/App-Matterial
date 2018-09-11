@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:elevation="@dimen/appBar_elevation"
         android:minHeight="?actionBarSize">
 
         <android.support.v7.widget.Toolbar
@@ -59,5 +60,6 @@
         android:contentDescription="@string/action_share"
         android:focusable="true"
         android:src="@drawable/ic_share"
+        android:elevation="@dimen/fab_elevation"
         app:fabSize="normal" />
 </FrameLayout>
