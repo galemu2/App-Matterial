@@ -1,6 +1,5 @@
 package com.example.xyzreader.ui;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager;
@@ -15,15 +14,12 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
-//import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowInsets;
-import android.widget.Toast;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
@@ -40,14 +36,11 @@ public class ArticleDetailActivity extends AppCompatActivity
 
     private long mSelectedItemId;
     private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
-    private int mTopInset;
 
     private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
-    private View mUpButtonContainer;
     private Toolbar mToolBar;
     private FloatingActionButton actionButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,11 +82,8 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         });
 
-//        mUpButtonContainer = findViewById(R.id.up_container);
-
         mToolBar = findViewById(R.id.action_up);
         setSupportActionBar(mToolBar);
-        //mToolBar.setLogo(getResources().getDrawable(R.drawable.logo));
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
