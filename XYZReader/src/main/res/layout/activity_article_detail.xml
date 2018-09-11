@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-
     <!--TODO nestedScrollView might not be necessary-->
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
@@ -16,10 +15,8 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?actionBarSize"
         android:background="@android:color/holo_green_dark"
-        >
-
+        android:minHeight="?actionBarSize">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/action_up"
@@ -38,49 +35,20 @@
                 android:layout_marginEnd="?actionBarSize"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
+
             <!--
+
             Source:     https://stackoverflow.com/a/38582618/7504259
             Name:       Arshak
             Date:       Jul 26, 2016
-                -->
+
+            -->
 
         </android.support.v7.widget.Toolbar>
 
-
     </android.support.design.widget.AppBarLayout>
 
-
-
-    <!--
-            android:layout_height="56dp"
--->
-
-
-    <!--    <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/up_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-            app:contentScrim="?attr/colorPrimary"
-
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"></android.support.design.widget.CollapsingToolbarLayout>-->
-
-    <!--    <FrameLayout
-            android:id="@+id/up_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent">
-
-            <ImageButton
-                android:layout_width="56dp"
-                android:layout_height="?actionBarSize"
-                android:background="?selectableItemBackgroundBorderless"
-                android:contentDescription="@string/up"
-                android:src="@drawable/ic_arrow_back"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-        </FrameLayout>
-        TODO remove Dead COde-->
+    <!-- android:layout_height="56dp" -->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"

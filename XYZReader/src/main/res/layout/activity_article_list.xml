@@ -18,10 +18,7 @@
             android:minHeight="?actionBarSize"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="@dimen/collapsingToolbarLayout_titleMarginStart"
-
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -39,9 +36,6 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/logo" />
-
-                <!--                    android:padding="@dimen/tollbar_image_padding"
-                -->
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>

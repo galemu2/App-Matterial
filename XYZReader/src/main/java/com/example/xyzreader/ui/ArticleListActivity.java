@@ -169,7 +169,7 @@ public class ArticleListActivity extends AppCompatActivity implements
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                     //startActivity(new Intent(Intent.ACTION_VIEW,
-                            //ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                    //ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
                 }
             });
             return vh;
