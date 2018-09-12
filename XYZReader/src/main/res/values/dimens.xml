@@ -20,5 +20,6 @@
     <dimen name="collapsingToolbarLayout_titleMarginStart">72dp</dimen>
     <dimen name="appBarLayout_elevation">8dp</dimen>
     <dimen name="appBar_elevation">4dp</dimen>
+    <dimen name="viewPager_margin">8dp</dimen>
 
 </resources>
