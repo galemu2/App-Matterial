@@ -69,7 +69,7 @@ public class ArticleDetailActivity extends AppCompatActivity
                 super.onPageScrollStateChanged(state);
                 mToolBar.animate()
                         .alpha((state == ViewPager.SCROLL_STATE_IDLE) ? 1f : 0f)
-                        .setDuration(300); //TODO animation was 300
+                        .setDuration(300);
             }
 
             @Override

@@ -29,12 +29,6 @@
                     android:layout_gravity="bottom"
                     android:scaleType="centerCrop" />
 
-                <!-- TODO image should fill
-                <View
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/photo_background_protection" />
-                -->
 
             </FrameLayout>
 
