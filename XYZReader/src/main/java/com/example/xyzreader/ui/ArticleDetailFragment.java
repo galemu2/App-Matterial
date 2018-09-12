@@ -42,6 +42,7 @@ public class ArticleDetailFragment extends Fragment implements
 
     public static final String ARG_ITEM_ID = "item_id";
     private static final float PARALLAX_FACTOR = 1.25f;
+    public static final String N_A = "N/A";
 
     private Cursor mCursor;
     private long mItemId;
@@ -138,7 +139,6 @@ public class ArticleDetailFragment extends Fragment implements
         mStatusBarColorDrawable = new ColorDrawable(0);
 
 
-
         bindViews();
         updateStatusBar();
         return mRootView;
@@ -194,14 +194,16 @@ public class ArticleDetailFragment extends Fragment implements
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
-
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+//TODO g. set text font type
+        //bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
+
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
@@ -209,7 +211,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 publishedDate.getTime(),
                                 System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                                 DateUtils.FORMAT_ABBREV_ALL).toString()
-                                + " by <font color='#ffffff'>"
+                                + " by <font color='#ffffff' >"
                                 + mCursor.getString(ArticleLoader.Query.AUTHOR)
                                 + "</font>"));
 
@@ -221,7 +223,29 @@ public class ArticleDetailFragment extends Fragment implements
                                 + "</font>"));
 
             }
+
+
+//            String textBody = mCursor.getString(ArticleLoader.Query.BODY);
+//
+//            textBody.
+//            Log.d("TAG", textBody.substring(0, 100));
+//
+//            textBody = textBody.replaceAll(".\\r", "<Br />");
+//            textBody = Html.fromHtml(textBody).toString();
+////            textBody = textBody.replaceAll("<Br />\n<Br />\n<Br />\n", "~*&^");
+////            textBody = textBody.replaceAll("<Br />", "");
+//            //textBody = textBody.replaceAll("\\n", " ");
+//            //textBody = textBody.replaceAll("\\s\\s", "<Br />");
+////            textBody = textBody.replaceAll("(~*&^)", "<Br />");
+//            //textBody = Html.fromHtml(textBody).toString();
+//            //textBody = textBody.replaceAll("\t", "<Br />");
+//            //textBody = Html.fromHtml(textBody).toString();
+//
+//            Log.d("TAG", textBody.substring(0, 100));
+//            bodyView.setText(textBody);
+
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
@@ -244,9 +268,9 @@ public class ArticleDetailFragment extends Fragment implements
                     });
         } else {
             mRootView.setVisibility(View.GONE);
-            titleView.setText("N/A");
-            bylineView.setText("N/A");
-            bodyView.setText("N/A");
+            titleView.setText(N_A);
+            bylineView.setText(N_A);
+            bodyView.setText(N_A);
         }
     }
 
