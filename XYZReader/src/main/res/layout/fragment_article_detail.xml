@@ -1,4 +1,5 @@
 <com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -43,7 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/detail_card_top_margin"
                 android:background="#fff"
-                android:elevation="2dp"
+                app:elevation="@dimen/maxWidthLinearLayout_elevation"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:orientation="vertical">
 
@@ -59,7 +60,6 @@
                     android:paddingLeft="@dimen/detail_inner_horiz_margin"
                     android:paddingRight="@dimen/detail_inner_horiz_margin"
                     android:paddingTop="@dimen/detail_metabar_vert_padding">
-                    //TODO text color
 
                     <TextView
                         android:id="@+id/article_title"

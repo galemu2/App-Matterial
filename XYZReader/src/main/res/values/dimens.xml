@@ -21,5 +21,6 @@
     <dimen name="appBarLayout_elevation">8dp</dimen>
     <dimen name="appBar_elevation">4dp</dimen>
     <dimen name="viewPager_margin">8dp</dimen>
+    <dimen name="maxWidthLinearLayout_elevation">2dp</dimen>
 
 </resources>
