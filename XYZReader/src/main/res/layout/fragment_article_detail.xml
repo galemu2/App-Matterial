@@ -72,6 +72,7 @@
                         android:textColor="@color/textView_subTitle" />
                 </LinearLayout>
 
+ 
                 <TextView
                     android:id="@+id/article_body"
                     style="?android:attr/textAppearanceMedium"
