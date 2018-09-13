@@ -103,7 +103,8 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         }
 
-        actionButton = findViewById(R.id.share_fab);
+        //TODO move FAB into the fragment
+/*        actionButton = findViewById(R.id.share_fab);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +113,8 @@ public class ArticleDetailActivity extends AppCompatActivity
                         .setText("Some sample text")
                         .getIntent(), getString(R.string.action_share)));
             }
-        });
+        });*/
+
     }
 
     @Override

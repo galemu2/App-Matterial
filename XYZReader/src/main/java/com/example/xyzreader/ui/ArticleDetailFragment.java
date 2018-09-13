@@ -2,6 +2,7 @@ package com.example.xyzreader.ui;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -10,6 +11,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -51,7 +54,7 @@ public class ArticleDetailFragment extends Fragment implements
     private ObservableScrollView mScrollView;
     private DrawInsetsFrameLayout mDrawInsetsFrameLayout;
     private ColorDrawable mStatusBarColorDrawable;
-
+    private FloatingActionButton actionButton;
     private int mTopInset;
     private View mPhotoContainerView;
     private ImageView mPhotoView;
@@ -137,7 +140,16 @@ public class ArticleDetailFragment extends Fragment implements
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
-
+        actionButton = mRootView.findViewById(R.id.share_fab);
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText("Some sample text")
+                        .getIntent(), getString(R.string.action_share)));
+            }
+        });
 
         bindViews();
         updateStatusBar();
@@ -224,25 +236,6 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
 
-
-//            String textBody = mCursor.getString(ArticleLoader.Query.BODY);
-//
-//            textBody.
-//            Log.d("TAG", textBody.substring(0, 100));
-//
-//            textBody = textBody.replaceAll(".\\r", "<Br />");
-//            textBody = Html.fromHtml(textBody).toString();
-////            textBody = textBody.replaceAll("<Br />\n<Br />\n<Br />\n", "~*&^");
-////            textBody = textBody.replaceAll("<Br />", "");
-//            //textBody = textBody.replaceAll("\\n", " ");
-//            //textBody = textBody.replaceAll("\\s\\s", "<Br />");
-////            textBody = textBody.replaceAll("(~*&^)", "<Br />");
-//            //textBody = Html.fromHtml(textBody).toString();
-//            //textBody = textBody.replaceAll("\t", "<Br />");
-//            //textBody = Html.fromHtml(textBody).toString();
-//
-//            Log.d("TAG", textBody.substring(0, 100));
-//            bodyView.setText(textBody);
 
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
 
