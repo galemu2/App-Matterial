@@ -7,11 +7,10 @@
     android:layout_marginRight="@dimen/cardView_padding_vertical"
     android:layout_marginTop="@dimen/carView_padding_horizontal"
     android:clickable="true"
-    app:cardElevation="@dimen/cardView_elevation"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="@dimen/cardView_corner_radius">
-    <!--android:elevation="@dimen/cardView_elevation"-->
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
         <com.example.xyzreader.ui.DynamicHeightNetworkImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:background="@color/photo_placeholder"
             android:scaleType="centerCrop" />
 
