@@ -236,6 +236,15 @@ public class ArticleDetailFragment extends Fragment implements
             }
 
 
+            //TODO use cardView
+            String[] bodyText = mCursor.getString(ArticleLoader.Query.BODY).split("\r\n\r\n");
+            int i = 1;
+
+            for(String s: bodyText){
+                Log.d("TAG", i+". "+s);
+                i++;
+            }
+
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
 
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
